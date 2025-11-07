@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-inventory
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: svc-inventory
+  template:
+    metadata:
+      labels:
+        app: svc-inventory
+    spec:
+      containers:
+        - name: svc-inventory
+          image: ghcr.io/ORG/svc-inventory:TAG
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet: { path: /health, port: 8000 }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /health, port: 8000 }
+            initialDelaySeconds: 10
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-inventory
+spec:
+  selector:
+    app: svc-inventory
+  ports:
+    - port: 80
+      targetPort: 8000
+  type: ClusterIP

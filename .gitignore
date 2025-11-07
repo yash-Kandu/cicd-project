@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Node/General
+node_modules/
+dist/
+build/
+
+# OS
+.DS_Store
+
+# Python test cache
+.pytest_cache/
+
+# Docker
+*.log
