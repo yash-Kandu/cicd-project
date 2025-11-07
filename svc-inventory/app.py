@@ -9,3 +9,4 @@ def health():
 @app.get("/")
 def root():
     return {"service": "svc-inventory", "message": "Hello from svc-inventory!"}
+#test
