@@ -17,7 +17,7 @@ jobs:
       AWS_REGION: us-east-2
       ECR_REPO: svc-orders
       ECS_CLUSTER: myapp-cluster
-      ECS_SERVICE: svc-orders
+      ECS_SERVICE: svc-orders-service
       ACCOUNT_ID: 479161061899
 
     steps:
