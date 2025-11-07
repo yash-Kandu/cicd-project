@@ -56,7 +56,7 @@ jobs:
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           ECS_CLUSTER: ${{ secrets.ECS_CLUSTER }}
-          ECS_SERVICE: svc-users
+          ECS_SERVICE: ssvc-users-service
           IMAGE: ghcr.io/${{ github.repository_owner }}/svc-users:${{ github.sha }}
         run: |
           pip install awscli-local awscli
